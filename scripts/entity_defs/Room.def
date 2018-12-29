@@ -36,7 +36,6 @@
         </CanEnterRoom>
         <NeedPlayersCount>
         </NeedPlayersCount>
-
     </BaseMethods>
 
     <CellMethods>
@@ -46,10 +45,10 @@
         <changeRoomSuccess>
             <Arg>ENTITY_ID</Arg>
         </changeRoomSuccess>
-        <!--<reqChangeReadyState>-->
-        <!--<Exposed/>-->
-        <!--<Arg>BOOL</Arg>-->
-        <!--</reqChangeReadyState>-->
+        <reqChangeReadyState>
+            <Exposed/>
+            <Arg>BOOL</Arg>
+        </reqChangeReadyState>
     </CellMethods>
 
 </root>

@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="926b22f8-4676-4164-b1bd-b8601576896c" name="Default Changelist" comment="" />
+    <list default="true" id="926b22f8-4676-4164-b1bd-b8601576896c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gensdk.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../gensdk.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/Account.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/Account.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/Room.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/Room.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cell/Account.py" beforeDir="false" afterPath="$PROJECT_DIR$/cell/Account.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cell/Room.py" beforeDir="false" afterPath="$PROJECT_DIR$/cell/Room.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity_defs/Account.def" beforeDir="false" afterPath="$PROJECT_DIR$/entity_defs/Account.def" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity_defs/Room.def" beforeDir="false" afterPath="$PROJECT_DIR$/entity_defs/Room.def" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,49 +60,63 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="1003639000">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.13" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="def" value="307" />
+          <entry key="py" value="1889" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Python" value="1889" />
+          <entry key="XML" value="307" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="def" value="1" />
+          <entry key="py" value="7" />
+          <entry key="xml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Python" value="7" />
+          <entry key="XML" value="2" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/base/Account.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="87" column="32" lean-forward="true" selection-start-line="87" selection-start-column="32" selection-end-line="87" selection-end-column="32" />
+            <state relative-caret-position="1938">
+              <caret line="102" column="41" lean-forward="true" selection-start-line="102" selection-start-column="41" selection-end-line="102" selection-end-column="41" />
               <folding>
                 <element signature="e#24#39#0" expanded="true" />
+                <marker date="1546072779241" expanded="true" signature="2937:2942" ph="..." />
+                <marker date="1546072779241" expanded="true" signature="3283:3366" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cell/Account.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+            <state relative-caret-position="342">
+              <caret line="18" column="111" lean-forward="true" selection-start-line="18" selection-start-column="111" selection-end-line="18" selection-end-column="111" />
               <folding>
                 <element signature="e#24#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/entity_defs/CheckName.def">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/Halls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1186">
-              <caret line="78" column="49" lean-forward="true" selection-start-line="78" selection-start-column="49" selection-end-line="78" selection-end-column="49" />
-              <folding>
-                <element signature="e#42#57#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -101,12 +125,25 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cell/Room.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="21" column="57" lean-forward="true" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
+            <state relative-caret-position="133">
+              <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
               <folding>
                 <element signature="e#42#57#0" expanded="true" />
-                <marker date="1545990759748" expanded="true" signature="1040:1045" ph="..." />
-                <marker date="1545990759748" expanded="true" signature="1306:1360" ph="..." />
+                <marker date="1546072546086" expanded="true" signature="1241:1246" ph="..." />
+                <marker date="1546072546086" expanded="true" signature="2417:2426" ph="..." />
+                <marker date="1546072546086" expanded="true" signature="3554:3609" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/base/Halls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="15" lean-forward="true" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+              <folding>
+                <element signature="e#42#57#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -115,11 +152,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/base/Room.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="747">
-              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="1083">
+              <caret line="57" column="26" lean-forward="true" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
               <folding>
                 <element signature="e#42#57#0" expanded="true" />
-                <marker date="1545975057439" expanded="true" signature="1410:1419" ph="..." />
+                <marker date="1546070324167" expanded="true" signature="1410:1419" ph="..." />
               </folding>
             </state>
           </provider>
@@ -128,8 +165,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/entity_defs/Account.def">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-355">
-              <caret line="16" column="38" lean-forward="true" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+            <state relative-caret-position="198">
+              <caret line="11" column="41" lean-forward="true" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -137,17 +174,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/entity_defs/Halls.def">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/entity_defs/types.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+            <state relative-caret-position="133">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -155,8 +183,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/entity_defs/Room.def">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="36" lean-forward="true" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+            <state relative-caret-position="627">
+              <caret line="33" column="22" lean-forward="true" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -172,32 +200,40 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>playerName</find>
-      <find>PlayerMaxCount</find>
-      <find>CanEnterRoom</find>
-      <find>onLeaveRoom</find>
-      <find>change</find>
-      <find>JoinRoom</find>
-      <find>roomIsFull</find>
-      <find>Halls</find>
-      <find>EnterMatchesMatch</find>
-      <find>changeRoomSuccess</find>
-      <find>onlosecell(</find>
-      <find>roomNeedPlayer</find>
-      <find>destroy</find>
-      <find>waitingEnterPlayerEntities</find>
-      <find>leaveRoom</find>
-      <find>EnterRoomSuccess</find>
-      <find>enterRoomSuccess</find>
       <find>enterRoom</find>
       <find>EnterPlayerList</find>
       <find>_createRoomEntity</find>
       <find>ReaLeaveRoom</find>
-      <find>ReqLeaveRoom</find>
       <find>reqCreateAvatar</find>
       <find>needPlayerRoomEntity</find>
       <find>enterr</find>
+      <find>playerLeaveRoom</find>
+      <find>LeaveRoom</find>
+      <find>ReqLeaveRoom</find>
+      <find>self.client</find>
+      <find>setReadyState</find>
+      <find>client</find>
+      <find>leaveRoom</find>
+      <find>NeedPlayersCount</find>
+      <find>PlayerReady</find>
+      <find>SetReadyState</find>
+      <find>clearDataByEntityId</find>
+      <find>clearDataBySeat</find>
+      <find>OnReqCreateAvatar</find>
+      <find>max</find>
+      <find>enterRoomSuccess</find>
+      <find>CountDown</find>
+      <find>GameStart</find>
+      <find>Start</find>
+      <find>GameCountDown</find>
+      <find>reqChangeReadyState</find>
+      <find>roomSeatIndex</find>
+      <find>seatIndex</find>
+      <find>playerReadyStateChange</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -221,14 +257,14 @@
         <option value="$PROJECT_DIR$/base/kbemain.py" />
         <option value="$PROJECT_DIR$/entities.xml" />
         <option value="$PROJECT_DIR$/entity_defs/Halls.def" />
-        <option value="$PROJECT_DIR$/entity_defs/Account.def" />
+        <option value="$PROJECT_DIR$/entity_defs/types.xml" />
         <option value="$PROJECT_DIR$/entity_defs/Room.def" />
         <option value="$PROJECT_DIR$/base/Room.py" />
-        <option value="$PROJECT_DIR$/base/Halls.py" />
-        <option value="$PROJECT_DIR$/cell/Account.py" />
-        <option value="$PROJECT_DIR$/entity_defs/types.xml" />
         <option value="$PROJECT_DIR$/cell/Room.py" />
         <option value="$PROJECT_DIR$/base/Account.py" />
+        <option value="$PROJECT_DIR$/entity_defs/Account.def" />
+        <option value="$PROJECT_DIR$/base/Halls.py" />
+        <option value="$PROJECT_DIR$/cell/Account.py" />
       </list>
     </option>
   </component>
@@ -238,6 +274,7 @@
     <option name="width" value="1936" />
     <option name="height" value="1096" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -428,20 +465,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cell/kbemain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="29" column="40" lean-forward="true" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cell/KBEngine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/Lib/tcl8.6/init.tcl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -453,9 +476,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#24#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -463,16 +483,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-          <folding>
-            <element signature="e#24#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/entities.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -490,91 +500,115 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/entity_defs/CheckName.def">
+    <entry file="file://$PROJECT_DIR$/cell/kbemain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+        <state relative-caret-position="551">
+          <caret line="29" column="40" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cell/Account.py">
+    <entry file="file://$PROJECT_DIR$/entities.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
-          <folding>
-            <element signature="e#24#39#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="209">
+          <caret line="11" column="35" lean-forward="true" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entity_defs/types.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="9" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/entity_defs/Halls.def">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        <state relative-caret-position="133">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cell/Room.py">
+    <entry file="file://$PROJECT_DIR$/cell/KBEngine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="57" lean-forward="true" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
-          <folding>
-            <element signature="e#42#57#0" expanded="true" />
-            <marker date="1545990759748" expanded="true" signature="1040:1045" ph="..." />
-            <marker date="1545990759748" expanded="true" signature="1306:1360" ph="..." />
-          </folding>
+        <state relative-caret-position="228">
+          <caret line="295" column="8" selection-start-line="295" selection-start-column="8" selection-end-line="295" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entity_defs/CheckName.def">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="19" lean-forward="true" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/entity_defs/Room.def">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="36" lean-forward="true" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+        <state relative-caret-position="627">
+          <caret line="33" column="22" lean-forward="true" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entity_defs/Account.def">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="41" lean-forward="true" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/Account.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1938">
+          <caret line="102" column="41" lean-forward="true" selection-start-line="102" selection-start-column="41" selection-end-line="102" selection-end-column="41" />
+          <folding>
+            <element signature="e#24#39#0" expanded="true" />
+            <marker date="1546072779241" expanded="true" signature="2937:2942" ph="..." />
+            <marker date="1546072779241" expanded="true" signature="3283:3366" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/base/Room.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="747">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="1083">
+          <caret line="57" column="26" lean-forward="true" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
           <folding>
             <element signature="e#42#57#0" expanded="true" />
-            <marker date="1545975057439" expanded="true" signature="1410:1419" ph="..." />
+            <marker date="1546070324167" expanded="true" signature="1410:1419" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cell/Room.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <folding>
+            <element signature="e#42#57#0" expanded="true" />
+            <marker date="1546072546086" expanded="true" signature="1241:1246" ph="..." />
+            <marker date="1546072546086" expanded="true" signature="2417:2426" ph="..." />
+            <marker date="1546072546086" expanded="true" signature="3554:3609" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/base/Halls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1186">
-          <caret line="78" column="49" lean-forward="true" selection-start-line="78" selection-start-column="49" selection-end-line="78" selection-end-column="49" />
+        <state relative-caret-position="133">
+          <caret line="7" column="15" lean-forward="true" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
           <folding>
             <element signature="e#42#57#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/Account.py">
+    <entry file="file://$PROJECT_DIR$/cell/Account.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="87" column="32" lean-forward="true" selection-start-line="87" selection-start-column="32" selection-end-line="87" selection-end-column="32" />
+        <state relative-caret-position="342">
+          <caret line="18" column="111" lean-forward="true" selection-start-line="18" selection-start-column="111" selection-end-line="18" selection-end-column="111" />
           <folding>
             <element signature="e#24#39#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/entity_defs/Account.def">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-355">
-          <caret line="16" column="38" lean-forward="true" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/entity_defs/types.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
         </state>
       </provider>
     </entry>

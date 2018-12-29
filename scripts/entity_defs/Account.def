@@ -23,6 +23,10 @@
             <Flags>ALL_CLIENTS</Flags>
             <Persistent>true</Persistent>
         </playerID>
+        <roomSeatIndex>
+            <Type>UINT8</Type>
+            <Flags>ALL_CLIENTS</Flags>
+        </roomSeatIndex>
 
         <isNewPlayer>
             <Type>UINT8</Type>
@@ -30,7 +34,10 @@
             <Persistent>true</Persistent>
             <Default>1</Default>
         </isNewPlayer>
-
+        <isReady>
+            <Type>BOOL</Type>
+            <Flags>ALL_CLIENTS</Flags>
+        </isReady>
     </Properties>
 
     <ClientMethods>
@@ -39,6 +46,11 @@
         </OnReqCreateAvatar>
         <playerLeaveRoom>
         </playerLeaveRoom>
+        <GameCountDown>
+            <Arg>UINT16</Arg>
+        </GameCountDown>
+        <GameStart></GameStart>
+        <GameOver></GameOver>
     </ClientMethods>
 
     <BaseMethods>
@@ -65,12 +77,23 @@
         <OnTeleport>
             <Arg>ENTITYCALL</Arg>
         </OnTeleport>
+        <GameCountDown>
+            <Arg>UINT16</Arg>
+        </GameCountDown>
+        <GameStart></GameStart>
+        <GameOver></GameOver>
     </BaseMethods>
 
     <CellMethods>
         <LeaveRoom>
             <Exposed/>
         </LeaveRoom>
+
+        <playerReadyStateChange>
+            <Arg>BOOL</Arg>
+            <Arg>UINT16</Arg>
+        </playerReadyStateChange>
+
     </CellMethods>
 
 </root>

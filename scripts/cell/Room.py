@@ -1,7 +1,12 @@
 # -*- coding: utf-8 -*-
-# import KBEngine
 import KBEngine
 from KBEDebug import *
+
+COUNT_DOWN_TIME = 3
+COUNT_DOWN_TIME_GAME_END = 10
+
+COUNT_DOWN_TIME_TAG = 1
+COUNT_DOWN_TIME_END_TAG = 2
 
 
 class Room(KBEngine.Entity):
@@ -11,13 +16,16 @@ class Room(KBEngine.Entity):
         KBEngine.globalData["Room_%i" % self.spaceID] = self
         self.roomInfo = roomInfo(self.roomKey, self.MaxPlayerCount)
         self.gameState = None
+        self.countDown = 0
+        self.endTime = COUNT_DOWN_TIME_GAME_END
 
     def enterRoom(self, entityCall):
         for i in range(len(self.roomInfo.seats)):
             seat = self.roomInfo.seats[i]
-            if seat.userId  == 0:
+            if seat.userId == 0:
                 seat.userId = entityCall.id
                 seat.score = 1000
+                seat.entity = entityCall
                 self.base.CanEnterRoom(entityCall)
                 entityCall.enterRoomSuccess(self.roomKey)
                 return
@@ -33,15 +41,62 @@ class Room(KBEngine.Entity):
     def changeRoomSuccess(self, entityId):
         self.roomInfo.clearDataByEntityId(entityId)
 
-    #
-    # def reqChangeReadyState(self, entityCall, isReady):
-    #     pass
+    def reqChangeReadyState(self, callerEntityID, STATE):
+        print("cell room reqChangeReadyState---callerEntityID", callerEntityID, "--STATE:", STATE)
+        # 设置座位上玩家的状态
+        for i in range(len(self.roomInfo.seats)):
+            seat = self.roomInfo.seats[i]
+            if seat.userId == callerEntityID:
+                seat.ready = not STATE
+                seat.entity.cell.playerReadyStateChange(seat.ready, seat.seatIndex)
+                print("reqChangeReadyState:", seat.ready, "--index:", seat.seatIndex)
+                break
 
+        for i in range(len(self.roomInfo.seats)):
+            seat = self.roomInfo.seats[i];
+            if not seat.ready:
+                print("cell room has player not ready---", seat.userId, "---", seat.ready)
+                return
 
-#----------------------------------------------------------------------
+        for i in range(len(self.roomInfo.seats)):
+            seat = self.roomInfo.seats[i]
+            seat.entity.GameCountDown(COUNT_DOWN_TIME_TAG)
+            print("inform all client GameCountDown")
+
+        self.addTimer(0.1, 1, COUNT_DOWN_TIME_TAG)
+
+    def onTimer(self, id, userArg):
+        # 游戏开始倒计时
+        if COUNT_DOWN_TIME_TAG == userArg:
+            if self.countDown < COUNT_DOWN_TIME:
+                self.countDown += 1
+            else:
+                self.countDown = 0
+                self.delTimer(id)
+                self.addTimer(0, 1, COUNT_DOWN_TIME_END_TAG)
+                # 倒计时完了，通知每一个玩家开始游戏
+                for i in range(len(self.roomInfo.seats)):
+                    seat = self.roomInfo.seats[i]
+                    seat.entity.GameStart()
+        elif COUNT_DOWN_TIME_END_TAG == userArg:
+            if self.endTime > 0:
+                self.endTime -= 1
+                print("game over time count down", self.endTime)
+            else:
+                self.delTimer(id)
+                self.endTime = COUNT_DOWN_TIME_GAME_END
+                # 倒计时完了，通知每一个玩家开始游戏
+                print("game over")
+                for i in range(len(self.roomInfo.seats)):
+                    seat = self.roomInfo.seats[i]
+                    seat.entity.GameOver()
+                    print("inform player game over")
+
+# ----------------------------------------------------------------------
 class gameState:
     def __init__(self):
         self.state = "idle"
+
 
 class roomInfo:
     def __init__(self, roomKey, maxPlayerCount):
@@ -56,23 +111,22 @@ class roomInfo:
         for i in range(len(self.seats)):
             self.clearDataBySeat(i, False)
 
-
-    def clearDataBySeat(self, index, isOut = True):
+    def clearDataBySeat(self, index, isOut=True):
         s = self.seats[index]
         if isOut:
             s.userId = 0
-        s.ready = 0
+            s.entity = None
+        s.ready = False
         s.score = 0
         s.position = {}
         s.direction = {}
         s.seatIndex = index
 
-    def clearDataByEntityId(self, entityId, isOut = True):
+    def clearDataByEntityId(self, entityId, isOut=True):
         for i in range(len(self.seats)):
             if self.seats[i].userId == entityId:
                 self.clearDataBySeat(i, isOut)
                 break
-
 
 
 class seat_roomInfo:
@@ -80,8 +134,7 @@ class seat_roomInfo:
         self.userId = 0
         self.score = 0
         self.position = {}
+        self.entity = None
         self.direction = {}
         self.ready = False
         self.seatIndex = seatIndex
-
-

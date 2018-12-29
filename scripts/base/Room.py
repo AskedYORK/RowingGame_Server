@@ -67,3 +67,5 @@ class Room(KBEngine.Entity):
                     KBEngine.globalData["Halls"].roomNeedPlayer(self, self.roomKey)
                 self.cell.changeRoomSuccess(playerEntity.id)
                 break
+
+

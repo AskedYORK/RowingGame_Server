@@ -117,6 +117,18 @@ class Account(KBEngine.Proxy):
     def onTeleportSuccess(self):
         print("换房间成功，当前房间号---" + str(self.roomKey))
 
+    def GameCountDown(self, countDownTime):
+        if self.client:
+            self.client.GameCountDown(countDownTime)
+
+    def GameStart(self):
+        if self.client:
+            self.client.GameStart()
+
+    def GameOver(self):
+        if self.client:
+            self.client.GameOver()
+
 
 
 
