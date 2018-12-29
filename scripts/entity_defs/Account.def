@@ -1,0 +1,76 @@
+<root>
+    <Properties>
+        <playerName_Base>
+            <Type>UNICODE</Type>
+            <Flags>BASE_AND_CLIENT</Flags>
+            <Persistent>true</Persistent>
+            <DatabaseLength>20</DatabaseLength>
+        </playerName_Base>
+        <playerID_base>
+            <Type>UINT16</Type>
+            <Flags>BASE_AND_CLIENT</Flags>
+            <Persistent>true</Persistent>
+        </playerID_base>
+
+        <playerName>
+            <Type>UNICODE</Type>
+            <Flags>ALL_CLIENTS</Flags>
+            <Persistent>true</Persistent>
+            <DatabaseLength>20</DatabaseLength>
+        </playerName>
+        <playerID>
+            <Type>UINT16</Type>
+            <Flags>ALL_CLIENTS</Flags>
+            <Persistent>true</Persistent>
+        </playerID>
+
+        <isNewPlayer>
+            <Type>UINT8</Type>
+            <Flags>BASE_AND_CLIENT</Flags>
+            <Persistent>true</Persistent>
+            <Default>1</Default>
+        </isNewPlayer>
+
+    </Properties>
+
+    <ClientMethods>
+        <OnReqCreateAvatar>
+            <Arg>UINT8</Arg>
+        </OnReqCreateAvatar>
+        <playerLeaveRoom>
+        </playerLeaveRoom>
+    </ClientMethods>
+
+    <BaseMethods>
+        <reqCreateAvatar>
+            <Exposed/>
+            <Arg>UNICODE</Arg>
+        </reqCreateAvatar>
+
+        <onLeaveRoom>
+        </onLeaveRoom>
+
+        <enterMatchesMatch>
+            <Exposed/>
+        </enterMatchesMatch>
+        <createCell>
+            <Arg>ENTITYCALL</Arg>
+        </createCell>
+        <reqChangeRoom>
+            <Exposed/>
+        </reqChangeRoom>
+        <enterRoomSuccess>
+            <Arg>SPACE_KEY</Arg>
+        </enterRoomSuccess>
+        <OnTeleport>
+            <Arg>ENTITYCALL</Arg>
+        </OnTeleport>
+    </BaseMethods>
+
+    <CellMethods>
+        <LeaveRoom>
+            <Exposed/>
+        </LeaveRoom>
+    </CellMethods>
+
+</root>

@@ -1,0 +1,55 @@
+<root>
+    <Properties>
+        <roomKey>
+            <Type>SPACE_KEY</Type>
+            <Flags>ALL_CLIENTS</Flags>
+        </roomKey>
+        <RoomType>
+            <Type>UINT8</Type>
+            <Flags>ALL_CLIENTS</Flags>
+        </RoomType>
+        <EnterPlayerList>
+            <Type>ENTITY_LIST</Type>
+            <Flags>BASE</Flags>
+        </EnterPlayerList>
+        <MaxPlayerCount>
+            <Type>UINT8</Type>
+            <Flags>ALL_CLIENTS</Flags>
+        </MaxPlayerCount>
+    </Properties>
+
+    <ClientMethods>
+    </ClientMethods>
+
+    <BaseMethods>
+        <enterRoom>
+            <Arg>ENTITYCALL</Arg>
+        </enterRoom>
+        <changeRoomSuccess>
+            <Arg>ENTITYCALL</Arg>
+        </changeRoomSuccess>
+        <leaveRoom>
+            <Arg>ENTITY_ID</Arg>
+        </leaveRoom>
+        <CanEnterRoom>
+            <Arg>ENTITYCALL</Arg>
+        </CanEnterRoom>
+        <NeedPlayersCount>
+        </NeedPlayersCount>
+
+    </BaseMethods>
+
+    <CellMethods>
+        <enterRoom>
+            <Arg>ENTITYCALL</Arg>
+        </enterRoom>
+        <changeRoomSuccess>
+            <Arg>ENTITY_ID</Arg>
+        </changeRoomSuccess>
+        <!--<reqChangeReadyState>-->
+        <!--<Exposed/>-->
+        <!--<Arg>BOOL</Arg>-->
+        <!--</reqChangeReadyState>-->
+    </CellMethods>
+
+</root>

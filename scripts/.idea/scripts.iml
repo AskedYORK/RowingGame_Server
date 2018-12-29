@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/tips/baseapp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tips/bots" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tips/cellapp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tips/client" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tips/dbmgr" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tips/interfaces" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tips/logger" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tips/loginapp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tips" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="TestRunnerService">
+    <option name="PROJECT_TEST_RUNNER" value="Unittests" />
+  </component>
+</module>
