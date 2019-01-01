@@ -44,8 +44,9 @@ class Account(KBEngine.Proxy):
         KBEngine method.
         客户端对应实体已经销毁
         """
+
         DEBUG_MSG("Account[%i].onClientDeath:" % self.id)
-        #self.destroy()
+        # self.destroy()
 
     def reqCreateAvatar(self, name):
         '''
@@ -108,12 +109,12 @@ class Account(KBEngine.Proxy):
     def enterRoomSuccess(self, roomKey):
         self.roomKey = roomKey
 
-    #房间通知玩家换房间
+    # 房间通知玩家换房间
     def OnTeleport(self, space):
         print("开始换房间，当前房间号---" + str(self.roomKey))
         self.teleport(space)
 
-    #换房间系统回调
+    # 换房间系统回调
     def onTeleportSuccess(self):
         print("换房间成功，当前房间号---" + str(self.roomKey))
 
@@ -128,9 +129,3 @@ class Account(KBEngine.Proxy):
     def GameOver(self):
         if self.client:
             self.client.GameOver()
-
-
-
-
-
-

@@ -26,6 +26,7 @@ class Room(KBEngine.Entity):
                 seat.userId = entityCall.id
                 seat.score = 1000
                 seat.entity = entityCall
+                entityCall.cell.playerReadyStateChange(seat.ready, seat.seatIndex)
                 self.base.CanEnterRoom(entityCall)
                 entityCall.enterRoomSuccess(self.roomKey)
                 return
