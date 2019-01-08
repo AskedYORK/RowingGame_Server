@@ -6,7 +6,7 @@ import random
 import Functor
 
 ALLOC_TIMER = 1
-ROOM_MAX_PLAYER = 2
+ROOM_MAX_PLAYER = 1
 
 
 class Halls(KBEngine.Entity):
@@ -22,6 +22,7 @@ class Halls(KBEngine.Entity):
         if entityCall in self.waitingEnterPlayerEntities:
             print("已经在匹配队列中了。。。。")
             return
+        print("bu zai pi pei dui lie ")
         self.waitingEnterPlayerEntities.append(entityCall)
         if self.matchAllocTimer == 0:
             self.matchAllocTimer = self.addTimer(0, 0.1, ALLOC_TIMER)
@@ -65,7 +66,6 @@ class Halls(KBEngine.Entity):
                     if playerCount == 0:
                         return
 
-
             for i in range(len(deleRoomList)):
                 self.needPlayerRoomEntity.pop(deleRoomList[i])
 
@@ -80,6 +80,7 @@ class Halls(KBEngine.Entity):
                     playerCount -= playerCount
 
     def _createRoom(self, playerCount):
+        print("_createRoom----playerCount:", playerCount)
         EntityList = []
         for i in range(playerCount):
             EntityList.append(self.waitingEnterPlayerEntities.pop(0))
@@ -87,6 +88,7 @@ class Halls(KBEngine.Entity):
 
     def _createRoomEntity(self, entityList, roomType = 0):
         roomId = self.generateRoomId()
+        print("_createRoomEntity roomId:", roomId)
         if self.allRoomEntityList.get(roomId, None) is not None:
             self._createRoomEntity(entityList, roomType)
 
@@ -96,9 +98,11 @@ class Halls(KBEngine.Entity):
             "EnterPlayerList": entityList,
             "MaxPlayerCount": ROOM_MAX_PLAYER
         }
+        print("_createRoomEntity props:")
         KBEngine.createEntityAnywhere("Room", props, Functor.Functor(self._createRoomCB, roomId))
 
     def _createRoomCB(self, roomId, entityCall):
+        print("_createRoomCB---roomId:", roomId, "--entityCall:", entityCall.id)
         self.allRoomEntityList[roomId] = entityCall
 
     def generateRoomId(self):
@@ -121,7 +125,6 @@ class Halls(KBEngine.Entity):
     def roomIsFull(self, entityCall, roomId):
         if self.needPlayerRoomEntity.get(roomId, None) is not None:
             self.needPlayerRoomEntity.pop(roomId)
-
 
     def changeRoom(self, entityMailBox, curRoomId):
         isEnterNewRoom = False

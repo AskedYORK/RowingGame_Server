@@ -16,6 +16,10 @@
             <Type>UINT8</Type>
             <Flags>ALL_CLIENTS</Flags>
         </MaxPlayerCount>
+        <IsGameStart>
+            <Type>BOOL</Type>
+            <Flags>ALL_CLIENTS</Flags>
+        </IsGameStart>
     </Properties>
 
     <ClientMethods>
@@ -49,6 +53,10 @@
             <Exposed/>
             <Arg>BOOL</Arg>
         </reqChangeReadyState>
+        <PlayerFinishGame>
+            <Exposed/>
+            <Arg>ENTITY_ID</Arg>
+        </PlayerFinishGame>
     </CellMethods>
 
 </root>

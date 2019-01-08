@@ -67,4 +67,7 @@
 	<baseapp>
 		<backupPeriod> 500 </backupPeriod>
 	</baseapp>
+	<cellapp>
+		<defaultViewRadius> 50000 </defaultViewRadius>
+	</cellapp>
 </root>

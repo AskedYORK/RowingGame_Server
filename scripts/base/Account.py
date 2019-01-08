@@ -44,8 +44,8 @@ class Account(KBEngine.Proxy):
         KBEngine method.
         客户端对应实体已经销毁
         """
-
         DEBUG_MSG("Account[%i].onClientDeath:" % self.id)
+        self.onLeaveRoom()
         # self.destroy()
 
     def reqCreateAvatar(self, name):
@@ -70,6 +70,7 @@ class Account(KBEngine.Proxy):
             nameEntity.writeToDB(Functor.Functor(self._OnNameSave, name))
 
     def _OnNameSave(self, name, success, avatar):
+        print("_OnNameSave----name:",name, "--success:", success)
         if self.isDestroyed:
             if avatar:
                 avatar.destroy()
@@ -78,6 +79,7 @@ class Account(KBEngine.Proxy):
             self.isNewPlayer = 0
             self.playerName_Base = name
             self.playerID_base = self.databaseID + 1000
+            self.playerID = self.databaseID + 10000
             self.cellData["playerName"] = name
             self.cellData["playerID"] = self.playerID_base
             if self.client:
@@ -96,6 +98,7 @@ class Account(KBEngine.Proxy):
         KBEngine.globalData["Halls"].EnterMatchesMatch(self)
 
     def createCell(self, roomCellCallEntity):
+        print("base account createCell roomCellCallEntity:", roomCellCallEntity)
         self.createCellEntity(roomCellCallEntity)
 
     def onLoseCell(self):
@@ -107,6 +110,7 @@ class Account(KBEngine.Proxy):
         KBEngine.globalData["Halls"].changeRoom(self, self.roomKey)
 
     def enterRoomSuccess(self, roomKey):
+        print("base account enterRoomSuccess roomKey:", roomKey)
         self.roomKey = roomKey
 
     # 房间通知玩家换房间
@@ -129,3 +133,7 @@ class Account(KBEngine.Proxy):
     def GameOver(self):
         if self.client:
             self.client.GameOver()
+
+    def PlayerFinishGame(self, entityId):
+        if self.client:
+            self.client.PlayerFinishGame(entityId);

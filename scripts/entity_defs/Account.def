@@ -51,6 +51,9 @@
         </GameCountDown>
         <GameStart></GameStart>
         <GameOver></GameOver>
+        <PlayerFinishGame>
+            <Arg>ENTITY_ID</Arg>
+        </PlayerFinishGame>
     </ClientMethods>
 
     <BaseMethods>
@@ -82,6 +85,9 @@
         </GameCountDown>
         <GameStart></GameStart>
         <GameOver></GameOver>
+        <PlayerFinishGame>
+            <Arg>ENTITY_ID</Arg>
+        </PlayerFinishGame>
     </BaseMethods>
 
     <CellMethods>

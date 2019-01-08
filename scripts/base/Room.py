@@ -19,15 +19,17 @@ class Room(KBEngine.Entity):
         return self.MaxPlayerCount - len(self.EnterPlayerList)
 
     def enterRoom(self, entityCall):
+        print("base room enterRoom0:", entityCall.id)
         if entityCall not in self.EnterPlayerList:
             self.EnterPlayerList.append(entityCall)
-
+        print("base room enterRoom1:", entityCall.id)
         if len(self.EnterPlayerList) == self.MaxPlayerCount and self.RoomType == 0:
             KBEngine.globalData["Halls"].roomIsFull(self, self.roomKey)
-
+        print("base room enterRoom2:", entityCall.id)
         if self.cell is not None:
             # 向cell投送玩家
             if self.cell is not None:
+                print("base room enterRoom3:", entityCall.id)
                 self.cell.enterRoom(entityCall)
 
     def leaveRoom(self, entityId):
@@ -37,7 +39,6 @@ class Room(KBEngine.Entity):
                 break
         if self.RoomType == 0:
             KBEngine.globalData["Halls"].roomNeedPlayer(self, self.roomKey)
-
 
     def onGetCell(self):
         '''
@@ -53,6 +54,7 @@ class Room(KBEngine.Entity):
             KBEngine.globalData["Halls"].roomNeedPlayer(self, self.roomKey)
 
     def CanEnterRoom(self, entityCall):
+        print("base room CanEnterRoom", entityCall.cell)
         if entityCall.cell is None:
             print("room has no cell")
             entityCall.createCell(self.cell)
