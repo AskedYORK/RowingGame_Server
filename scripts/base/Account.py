@@ -13,6 +13,7 @@ class Account(KBEngine.Proxy):
         KBEngine.Proxy.__init__(self)
         self.MainState = MAIN_STATE_IDEL
         self.roomKey = 0
+        self.observe_type = 0
 
     def onTimer(self, id, userArg):
         """
@@ -45,7 +46,6 @@ class Account(KBEngine.Proxy):
         客户端对应实体已经销毁
         """
         DEBUG_MSG("Account[%i].onClientDeath:" % self.id)
-        self.onLeaveRoom()
         # self.destroy()
 
     def reqCreateAvatar(self, name):
@@ -81,24 +81,25 @@ class Account(KBEngine.Proxy):
             self.playerID_base = self.databaseID + 1000
             self.playerID = self.databaseID + 10000
             self.cellData["playerName"] = name
-            self.cellData["playerID"] = self.playerID_base
+            self.cellData["playerID"] = self.playerID
             if self.client:
                 self.client.OnReqCreateAvatar(0)
         else:
             self.client.OnReqCreateAvatar(1)
 
     def onLeaveRoom(self):
-        self.destroyCellEntity()
+        if self.cell:
+            self.destroyCellEntity()
 
     def enterMatchesMatch(self):
+        print("enterMatchesMatch---account--self.MainState ", self.MainState, "--self.observe_type:", self.observe_type)
         if self.MainState != MAIN_STATE_IDEL:
             return
         self.MainState = MAIN_STATE_MATCH
-        print("enterMatchesMatch----", self.cellData["position"], "---", self.cellData["direction"])
         KBEngine.globalData["Halls"].EnterMatchesMatch(self)
 
     def createCell(self, roomCellCallEntity):
-        print("base account createCell roomCellCallEntity:", roomCellCallEntity)
+        print("base account createCell roomCellCallEntity:", roomCellCallEntity, "--observe_type:", self.observe_type)
         self.createCellEntity(roomCellCallEntity)
 
     def onLoseCell(self):
@@ -136,4 +137,40 @@ class Account(KBEngine.Proxy):
 
     def PlayerFinishGame(self, entityId):
         if self.client:
-            self.client.PlayerFinishGame(entityId);
+            self.client.PlayerFinishGame(entityId)
+
+    def update_pos_to_client(self, entity_id, position, direction, speed):
+        """
+        通知客户端位置变化
+        :param entity_id:
+        :param position:
+        :param direction:
+        :param speed:
+        :return:
+        """
+        if self.client:
+            self.client.UpdatePlayerPosToClient(entity_id, position, direction, speed)
+
+    def player_wheel_to_client(self, entity_id, direction, play):
+        """
+        通知客户端左转右转动画播放
+        :param entity_id:
+        :param direction:
+        :param play:
+        :return:
+        """
+        if self.client:
+            self.client.player_wheel(entity_id, direction, play)
+
+    def player_5g_info_to_client(self, entity_id, sore, m_bps, delay, frame):
+        """
+        通知5g客户端信息变化
+        :param entity_id:
+        :param sore:
+        :param m_bps:
+        :param delay:
+        :param frame:
+        :return:
+        """
+        if self.client:
+            self.client.player_5g_info(entity_id, sore, m_bps, delay, frame)

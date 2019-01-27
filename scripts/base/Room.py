@@ -34,7 +34,7 @@ class Room(KBEngine.Entity):
 
     def leaveRoom(self, entityId):
         for i in range(len(self.EnterPlayerList)):
-            if self.EnterPlayerList[i] == entityId:
+            if self.EnterPlayerList[i].id == entityId:
                 self.EnterPlayerList.pop(i)
                 break
         if self.RoomType == 0:

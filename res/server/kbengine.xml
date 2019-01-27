@@ -65,6 +65,8 @@
 	</dbmgr>
 	
 	<baseapp>
+		<!-- 自动存档的时间周期(秒)(Automatic archiving time period(secs))-->
+        <archivePeriod> 600 </archivePeriod>
 		<backupPeriod> 500 </backupPeriod>
 	</baseapp>
 	<cellapp>

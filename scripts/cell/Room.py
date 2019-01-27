@@ -3,10 +3,11 @@ import KBEngine
 from KBEDebug import *
 
 COUNT_DOWN_TIME = 5
-COUNT_DOWN_TIME_GAME_END = 30
+COUNT_DOWN_TIME_GAME_END = 300
 
 COUNT_DOWN_TIME_TAG = 10
 COUNT_DOWN_TIME_END_TAG = 2
+MAX_PLAYER_NEED_CAN_START = 2
 
 
 class Room(KBEngine.Entity):
@@ -34,7 +35,6 @@ class Room(KBEngine.Entity):
                 entityCall.cell.playerReadyStateChange(seat.ready, seat.seatIndex)
                 self.base.CanEnterRoom(entityCall)
                 entityCall.enterRoomSuccess(self.roomKey)
-                print("enterRoom-----2")
                 return
 
     def ReqLeaveRoom(self, entityCall):
@@ -48,6 +48,23 @@ class Room(KBEngine.Entity):
     def changeRoomSuccess(self, entityId):
         self.roomInfo.clearDataByEntityId(entityId)
 
+    def check_room_can_start(self):
+        ready_count = 0
+        for i in range(len(self.roomInfo.seats)):
+            seat = self.roomInfo.seats[i]
+            if seat.ready:
+                ready_count += 1
+        if ready_count < MAX_PLAYER_NEED_CAN_START:
+            print("cell room has player not ready---")
+            return
+
+        for i in range(len(self.roomInfo.seats)):
+            seat = self.roomInfo.seats[i]
+            if seat.entity is not None:
+                seat.entity.GameCountDown(COUNT_DOWN_TIME_TAG)
+                print("inform all client GameCountDown")
+        self.addTimer(0.1, 1, COUNT_DOWN_TIME_TAG)
+
     def reqChangeReadyState(self, callerEntityID, STATE):
         print("cell room reqChangeReadyState---callerEntityID", callerEntityID, "--STATE:", STATE)
         # 设置座位上玩家的状态
@@ -55,30 +72,33 @@ class Room(KBEngine.Entity):
             seat = self.roomInfo.seats[i]
             if seat.userId == callerEntityID:
                 seat.ready = not STATE
-                seat.entity.cell.playerReadyStateChange(seat.ready, seat.seatIndex)
-                print("reqChangeReadyState:", seat.ready, "--index:", seat.seatIndex)
-                break
+                if seat.entity is not None:
+                    seat.entity.cell.playerReadyStateChange(seat.ready, seat.seatIndex)
+                    print("reqChangeReadyState:", seat.ready, "--index:", seat.seatIndex)
+                    break
 
-        for i in range(len(self.roomInfo.seats)):
-            seat = self.roomInfo.seats[i];
-            if not seat.ready:
-                print("cell room has player not ready---", seat.userId, "---", seat.ready)
-                return
+        self.check_room_can_start()
 
-        for i in range(len(self.roomInfo.seats)):
-            seat = self.roomInfo.seats[i]
-            seat.entity.GameCountDown(COUNT_DOWN_TIME_TAG)
-            print("inform all client GameCountDown")
-
-        self.addTimer(0.1, 1, COUNT_DOWN_TIME_TAG)
+        # for i in range(len(self.roomInfo.seats)):
+        #     seat = self.roomInfo.seats[i];
+        #     if not seat.ready:
+        #         print("cell room has player not ready---", seat.userId, "---", seat.ready)
+        #         return
+        #
+        # for i in range(len(self.roomInfo.seats)):
+        #     seat = self.roomInfo.seats[i]
+        #     seat.entity.GameCountDown(COUNT_DOWN_TIME_TAG)
+        #     print("inform all client GameCountDown")
+        #
+        # self.addTimer(0.1, 1, COUNT_DOWN_TIME_TAG)
 
     def PlayerFinishGame(self, entityId):
         print("PlayerFinishGame entityId:", entityId)
         self.finishGameCount += 1
         for i in range(len(self.roomInfo.seats)):
             seat = self.roomInfo.seats[i]
-            seat.entity.PlayerFinishGame(entityId)
-            print("PlayerFinishGame be formed player:", seat.entity.playerID)
+            if seat.entity is not None:
+                seat.entity.PlayerFinishGame(entityId)
 
         # 所有玩家完成比赛
         if self.finishGameCount == len(self.roomInfo.seats):
@@ -92,8 +112,9 @@ class Room(KBEngine.Entity):
                 # 倒计时通知每一个玩家
                 for i in range(len(self.roomInfo.seats)):
                     seat = self.roomInfo.seats[i]
-                    seat.entity.GameCountDown(COUNT_DOWN_TIME - self.countDown)
-                    print("inform all client GameCountDown")
+                    if seat.entity is not None:
+                        seat.entity.GameCountDown(COUNT_DOWN_TIME - self.countDown)
+                        print("inform all client GameCountDown")
             else:
                 self.countDown = 0
                 self.delTimer(id)
@@ -102,7 +123,8 @@ class Room(KBEngine.Entity):
                 # 倒计时完了，通知每一个玩家开始游戏
                 for i in range(len(self.roomInfo.seats)):
                     seat = self.roomInfo.seats[i]
-                    seat.entity.GameStart()
+                    if seat.entity is not None:
+                        seat.entity.GameStart()
 
         elif COUNT_DOWN_TIME_END_TAG == userArg:
             if self.endTime > 0:
@@ -113,12 +135,63 @@ class Room(KBEngine.Entity):
                 self.endTime = COUNT_DOWN_TIME_GAME_END
                 self.IsGameStart = False
                 self.finishGameCount = 0
-                # 倒计时完了，通知每一个玩家开始游戏
+                # 倒计时完了，通知每一个玩家游戏结束
                 print("game over")
                 for i in range(len(self.roomInfo.seats)):
                     seat = self.roomInfo.seats[i]
-                    seat.entity.GameOver()
-                    print("inform player game over")
+                    if seat.entity is not None:
+                        seat.ready = False
+                        seat.entity.cell.playerReadyStateChange(False, seat.seatIndex)
+                        seat.entity.GameOver()
+                        print("inform player game over")
+
+    def player_update(self, entity_id, position, direction, speed):
+        # if not self.IsGameStart:
+        #     return
+        for i in range(len(self.roomInfo.seats)):
+            seat = self.roomInfo.seats[i]
+            if seat.entity is not None and seat.userId != 0:
+                # 更新自己的位置相关信息
+                if seat.userId == entity_id:
+                    seat.entity.cell.player_update(position, direction, speed)
+                else:
+                    # 通知房间玩家位置变动
+                    seat.entity.update_pos_to_client(entity_id, position, direction, speed)
+
+    def player_wheel(self, entity_id, direction, play):
+        """
+        玩家转向
+        :param entity_id:
+        :param direction:
+        :param play:
+        :return:
+        """
+        for i in range(len(self.roomInfo.seats)):
+            seat = self.roomInfo.seats[i]
+            if seat.entity is not None and seat.userId != 0:
+                # 更新自己的位置相关信息
+                if seat.userId != entity_id:
+                    # 通知玩家转向
+                    seat.entity.player_wheel_to_client(entity_id, direction, play)
+
+    def player_5g_info(self, entity_id, sore, m_bps, delay, frame):
+        """
+        传输得分、帧率的信息
+        :param entity_id:
+        :param sore:
+        :param m_bps:
+        :param delay:
+        :param frame:
+        :return:
+        """
+        for i in range(len(self.roomInfo.seats)):
+            seat = self.roomInfo.seats[i]
+            if seat.entity is not None and seat.userId != 0:
+                # 更新自己的位置相关信息
+                if seat.userId != entity_id:
+                    # 通知玩家转向
+                    seat.entity.player_5g_info_to_client(entity_id, sore, m_bps, delay, frame)
+
 
 # ----------------------------------------------------------------------
 

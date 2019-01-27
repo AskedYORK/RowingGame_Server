@@ -27,7 +27,6 @@
             <Type>UINT8</Type>
             <Flags>ALL_CLIENTS</Flags>
         </roomSeatIndex>
-
         <isNewPlayer>
             <Type>UINT8</Type>
             <Flags>BASE_AND_CLIENT</Flags>
@@ -38,6 +37,18 @@
             <Type>BOOL</Type>
             <Flags>ALL_CLIENTS</Flags>
         </isReady>
+        <PlayerPosition>
+            <Type>POSITION3D</Type>
+            <Flags>ALL_CLIENTS</Flags>
+        </PlayerPosition>
+        <PlayerDirection>
+            <Type>DIRECTION3D</Type>
+            <Flags>ALL_CLIENTS</Flags>
+        </PlayerDirection>
+        <Speed>
+            <Type>FLOAT</Type>
+            <Flags>ALL_CLIENTS</Flags>
+        </Speed>
     </Properties>
 
     <ClientMethods>
@@ -54,6 +65,26 @@
         <PlayerFinishGame>
             <Arg>ENTITY_ID</Arg>
         </PlayerFinishGame>
+        <UpdatePlayerPosToClient>
+            <Arg>ENTITY_ID</Arg>
+            <Arg>POSITION3D</Arg>
+            <Arg>DIRECTION3D</Arg>
+            <Arg>FLOAT</Arg>
+        </UpdatePlayerPosToClient>
+        <player_wheel>
+            <Exposed/>
+            <Arg>ENTITY_ID</Arg>
+            <Arg>BOOL</Arg>
+            <Arg>BOOL</Arg>
+        </player_wheel>
+        <player_5g_info>
+            <Exposed/>
+            <Arg>ENTITY_ID</Arg>
+            <Arg>UINT32</Arg>
+            <Arg>UINT32</Arg>
+            <Arg>UINT32</Arg>
+            <Arg>UINT32</Arg>
+        </player_5g_info>
     </ClientMethods>
 
     <BaseMethods>
@@ -61,10 +92,8 @@
             <Exposed/>
             <Arg>UNICODE</Arg>
         </reqCreateAvatar>
-
         <onLeaveRoom>
         </onLeaveRoom>
-
         <enterMatchesMatch>
             <Exposed/>
         </enterMatchesMatch>
@@ -88,18 +117,40 @@
         <PlayerFinishGame>
             <Arg>ENTITY_ID</Arg>
         </PlayerFinishGame>
+        <update_pos_to_client>
+            <Arg>ENTITY_ID</Arg>
+            <Arg>POSITION3D</Arg>
+            <Arg>DIRECTION3D</Arg>
+            <Arg>FLOAT</Arg>
+        </update_pos_to_client>
+        <player_wheel_to_client>
+            <Arg>ENTITY_ID</Arg>
+            <Arg>BOOL</Arg>
+            <Arg>BOOL</Arg>
+        </player_wheel_to_client>
+        <player_5g_info_to_client>
+            <Arg>ENTITY_ID</Arg>
+            <Arg>UINT32</Arg>
+            <Arg>UINT32</Arg>
+            <Arg>UINT32</Arg>
+            <Arg>UINT32</Arg>
+        </player_5g_info_to_client>
     </BaseMethods>
 
     <CellMethods>
         <LeaveRoom>
             <Exposed/>
         </LeaveRoom>
-
         <playerReadyStateChange>
+            <Exposed/>
             <Arg>BOOL</Arg>
             <Arg>UINT16</Arg>
         </playerReadyStateChange>
-
+        <player_update>
+            <Arg>POSITION3D</Arg>
+            <Arg>DIRECTION3D</Arg>
+            <Arg>FLOAT</Arg>
+        </player_update>
     </CellMethods>
 
 </root>

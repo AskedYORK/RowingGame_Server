@@ -6,7 +6,7 @@ import random
 import Functor
 
 ALLOC_TIMER = 1
-ROOM_MAX_PLAYER = 1
+ROOM_MAX_PLAYER = 5
 
 
 class Halls(KBEngine.Entity):
@@ -22,16 +22,10 @@ class Halls(KBEngine.Entity):
         if entityCall in self.waitingEnterPlayerEntities:
             print("已经在匹配队列中了。。。。")
             return
-        print("bu zai pi pei dui lie ")
+        print("---------------bu zai pi pei dui lie ")
         self.waitingEnterPlayerEntities.append(entityCall)
         if self.matchAllocTimer == 0:
             self.matchAllocTimer = self.addTimer(0, 0.1, ALLOC_TIMER)
-
-    def CreatePriviRoom(self, entityCall):
-        pass
-
-    # def JoinRoom(self, entityCall, roomId):
-    #     pass
 
     def onTimer(self, timerHandle, userData):
         if userData == ALLOC_TIMER:
@@ -86,7 +80,7 @@ class Halls(KBEngine.Entity):
             EntityList.append(self.waitingEnterPlayerEntities.pop(0))
         self._createRoomEntity(EntityList)
 
-    def _createRoomEntity(self, entityList, roomType = 0):
+    def _createRoomEntity(self, entityList, roomType=0):
         roomId = self.generateRoomId()
         print("_createRoomEntity roomId:", roomId)
         if self.allRoomEntityList.get(roomId, None) is not None:
@@ -144,5 +138,3 @@ class Halls(KBEngine.Entity):
             self.allRoomEntityList[curRoomId].changeRoomSuccess(entityMailBox)
         else:
             print("changeRoom has no more room")
-
-

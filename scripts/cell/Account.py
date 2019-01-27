@@ -12,12 +12,14 @@ class Account(KBEngine.Entity):
             return
         KBEngine.globalData["Room_%i" % self.spaceID].ReqLeaveRoom(self)
 
-
     def playerReadyStateChange(self, state, seatIndex):
         self.isReady = state
         self.roomSeatIndex = seatIndex
-        print("cell account playerReadyStateChange isReady:", self.isReady, "--seatIndex:", self.roomSeatIndex)
 
+    def player_update(self, position, direction, speed):
+        self.PlayerPosition = position
+        self.PlayerDirection = direction
+        self.Speed = speed
 
-
-
+    def set_ready_state(self, state):
+        self.isReady = state

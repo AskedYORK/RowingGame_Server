@@ -13,5 +13,7 @@ echo KBE_RES_PATH = %KBE_RES_PATH%
 echo KBE_BIN_PATH = %KBE_BIN_PATH%
 
 cd %curpath%
-start %KBE_BIN_PATH%/kbcmd.exe --clientsdk=unity --outpath=F:\User\UnityProjects\Unity_RowingGame_5G_Show\Assets\Plugin
+::start %KBE_BIN_PATH%/kbcmd.exe --clientsdk=unity --outpath=F:\User\UnityProjects\Unity_RowingGame_5G_Show\Assets\Plugin
+start %KBE_BIN_PATH%/kbcmd.exe --clientsdk=unity --outpath=F:\User\UnityProjects\Unity_RowingGame_5G_Show_Vr\Unity_RowingGame_5G_Show\Assets\Plugin
+::start %KBE_BIN_PATH%/kbcmd.exe --clientsdk=unity --outpath=F:\User\UnityProjects\Unity_RowingGame_5G_Show_Android\Unity_RowingGame_5G_Show\Assets\Plugin
 ::start %KBE_BIN_PATH%/kbcmd.exe --clientsdk=ue4 --outpath=%curpath%/kbengine_ue4_plugins

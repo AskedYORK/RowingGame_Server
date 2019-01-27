@@ -57,6 +57,26 @@
             <Exposed/>
             <Arg>ENTITY_ID</Arg>
         </PlayerFinishGame>
+        <player_update>
+            <Exposed/>
+            <Arg>POSITION3D</Arg>
+            <Arg>DIRECTION3D</Arg>
+            <Arg>FLOAT</Arg>
+        </player_update>
+        <player_wheel>
+            <Exposed/>
+            <Arg>ENTITY_ID</Arg>
+            <Arg>BOOL</Arg>
+            <Arg>BOOL</Arg>
+        </player_wheel>
+        <player_5g_info>
+            <Exposed/>
+            <Arg>ENTITY_ID</Arg>
+            <Arg>UINT32</Arg>
+            <Arg>UINT32</Arg>
+            <Arg>UINT32</Arg>
+            <Arg>UINT32</Arg>
+        </player_5g_info>
     </CellMethods>
 
 </root>
