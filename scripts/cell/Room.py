@@ -3,11 +3,11 @@ import KBEngine
 from KBEDebug import *
 
 COUNT_DOWN_TIME = 5
-COUNT_DOWN_TIME_GAME_END = 300
+COUNT_DOWN_TIME_GAME_END = 60
 
 COUNT_DOWN_TIME_TAG = 10
 COUNT_DOWN_TIME_END_TAG = 2
-MAX_PLAYER_NEED_CAN_START = 2
+MAX_PLAYER_NEED_CAN_START = 1
 
 
 class Room(KBEngine.Entity):
@@ -93,16 +93,17 @@ class Room(KBEngine.Entity):
         # self.addTimer(0.1, 1, COUNT_DOWN_TIME_TAG)
 
     def PlayerFinishGame(self, entityId):
-        print("PlayerFinishGame entityId:", entityId)
+        # 只要有玩家完成比赛就把倒计时置为0，结束比赛
         self.finishGameCount += 1
         for i in range(len(self.roomInfo.seats)):
             seat = self.roomInfo.seats[i]
             if seat.entity is not None:
                 seat.entity.PlayerFinishGame(entityId)
+                self.endTime = 0
 
-        # 所有玩家完成比赛
-        if self.finishGameCount == len(self.roomInfo.seats):
-            self.endTime = 0
+        # # 所有玩家完成比赛
+        # if self.finishGameCount == len(self.roomInfo.seats):
+        #     self.endTime = 0
 
     def onTimer(self, id, userArg):
         # 游戏开始倒计时
